@@ -5,8 +5,8 @@ const App = () => {
         div >
         <
         h1 > Smart Ethereum Wallet Tracker < /h1> <
-        p > Welcome to the Ethereum wallet tracking app! < /p> <
-        /div>
+        p > Welcome to the Ethereum wallet tracking app! < /p> < /
+        div >
     );
 };
 

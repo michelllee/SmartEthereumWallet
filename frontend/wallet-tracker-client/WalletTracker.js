@@ -10,7 +10,7 @@ const WalletTracker = () => {
 
         const fetchBalance = async() => {
             try {
-                const response = await axios.get(`http://localhost:5000/balance/${address}`);
+                const response = await axios.get(`http://localhost:5001/balance/${address}`);
                 setBalance(response.data.balance);
                 setError(null); // Clear any previous errors
             } catch (error) {
