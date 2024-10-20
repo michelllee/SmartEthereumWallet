@@ -25,7 +25,9 @@ const WalletTracker = () => {
             setBalance(response.data.balance);
             setError(null);
         } catch (error) {
-            setError(error.response?.data?.error || error.message || 'Invalid address or network error');
+            setError(
+                error.response?.data?.error || error.message || 'Invalid address or network error'
+            );
             setBalance(null);
         }
         setIsBalanceLoading(false);
@@ -47,7 +49,9 @@ const WalletTracker = () => {
                 setError('No transactions found or issue with fetching.');
             }
         } catch (error) {
-            setError(error.response?.data?.error || 'Network error, please try again later');
+            setError(
+                error.response?.data?.error || 'Network error, please try again later'
+            );
             setTransactions([]);
         }
         setIsTransactionsLoading(false);
@@ -55,23 +59,24 @@ const WalletTracker = () => {
 
     return (
         <div>
-            <h1>Ethereum Wallet Tracker</h1>
+            <h2>Enter an Ethereum Address</h2>
             <input
                 type="text"
                 placeholder="Enter Ethereum address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value.trim())}
             />
-            <button onClick={fetchBalance} disabled={!address || isBalanceLoading}>Get Balance</button>
-            <button onClick={fetchTransactions} disabled={!address || isTransactionsLoading}>Get Transactions</button>
+            <button onClick={fetchBalance} disabled={!address || isBalanceLoading}>
+                Get Balance
+            </button>
+            <button onClick={fetchTransactions} disabled={!address || isTransactionsLoading}>
+                Get Transactions
+            </button>
 
             {isBalanceLoading && <p>Loading balance...</p>}
             {isTransactionsLoading && <p>Loading transactions...</p>}
-
             {error && <p style={{ color: 'red' }}>{error}</p>}
-
             {balance && !isBalanceLoading && <p>Balance: {balance} ETH</p>}
-
             {transactions.length > 0 && !isTransactionsLoading && (
                 <div>
                     <h2>Transaction History:</h2>
@@ -89,4 +94,3 @@ const WalletTracker = () => {
 };
 
 export default WalletTracker;
-
