@@ -1,13 +1,13 @@
 import React from 'react';
+import WalletTracker from './WalletTracker';
 
-const App = () => {
-    return ( <
-        div >
-        <
-        h1 > Smart Ethereum Wallet Tracker < /h1> <
-        p > Welcome to the Ethereum wallet tracking app! < /p> < /
-        div >
+function App() {
+    return ( 
+        <div className="App">
+            <h1>Smart Ethereum Wallet</h1>
+            <WalletTracker />
+        </div>
     );
-};
+}
 
 export default App;
